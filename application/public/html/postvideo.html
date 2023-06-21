@@ -21,6 +21,35 @@
             </ul>
         </nav>
     </header>
+
+    <main>
+        <header>
+            <h3>Follow the instructions below to post your video.</h3>
+        </header>
+        <form>
+            <label for="title">Title of the video: : </label>
+            <input type="text" id="title" placeholder="Title"/>
+
+            <label for="description">Descrition of the video: </label>
+            <input type="text" id="description" placeholder="Description"/>
+
+            <div>
+                <label for="video">Video file: </label>
+                <!--<video src="" id="video"></video>-->
+                <input type="file" id="video">
+            </div>
+
+            <div>
+                <label for="acceptingRules"> I accept the <a href="">Usage Policy</a></label>
+                <input type="checkbox" id="acceptingRules"/>
+            </div>
+            
+            <div>
+                <input type="submit" value="Submit Video"/>
+            </div>
+        </form>
+    </main>
+    <footer> Sukrit Dev Dhawan &copy; 2023</footer>
 </body>
 
 </html>
