@@ -6,40 +6,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Page</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
 </head>
 
 <body>
-    <h1>Registration Form</h1>
+    <h1>CSC 317 - Term Project</h1>
+
     <header>
         <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="registration.html">Registration</a></li>
-                <li><a href="postvideo.html">Post Video</a></li>
-                <li><a href="viewvideo.html">View Videos</a></li>
-            </ul>
+           <a href="index.html">Home</a>
+            <a href="login.html">Login</a>
+            <a href="registration.html">Registration</a>
+            <a href="postvideo.html">Post Video</a>
+            <a href="viewvideo.html">View Videos</a>
         </nav>
     </header>
 
     <main>
+        <h2>Registration Form</h2>
+
         <header>
-            <h3>Please complete the form to be a registered user.</h3>
+            <h4>Please complete the form to be a registered user.</h4>
         </header>
 
         <form>
-            <label for="username">Username: </label>
-            <input type="text" id="username" placeholder="Username"/>
+            <div>
+                <label for="username">Username: </label>
+                <input type="text" id="username" placeholder="Username"class="input"/>
+            </div>
+            
+            <div>
+                <label for="password">Password: </label>
+                <input type="password" id="password" placeholder="Password"class="input"/>
+            </div>
 
-            <label for="password">Password: </label>
-            <input type="password" id="password" placeholder="Password"/>
-
-            <label for="confirmPassword">Confirm Password: </label>
-            <input type="password" id="confirmPassword" placeholder="Re-Type Password"/>
+            <div>
+                <label for="confirmPassword">Confirm Password: </label>
+                <input type="password" id="confirmPassword" placeholder="Re-Type Password"class="input"/>
+            </div>
 
             <div>
                 <label for="email">Email: </label>
-                <input type="email" id="email" placeholder="abcd@something.com"/>
+                <input type="email" id="email" placeholder="abcd@something.com" class="input"/>
             </div>
 
             <div>
@@ -53,7 +61,7 @@
             </div>
             
             <div>
-                <input type="submit" value="Register"/>
+                <input type="submit" value="Register" class="button"/>
             </div>
         </form>
     </main>

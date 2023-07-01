@@ -6,34 +6,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
 </head>
 
 <body>
-    <h1>Login Page</h1>
+
+    <h1>CSC 317 - Term Project</h1>
+
     <header>
         <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="registration.html">Registration</a></li>
-                <li><a href="postvideo.html">Post Video</a></li>
-                <li><a href="viewvideo.html">View Videos</a></li>
-            </ul>
+            <a href="index.html">Home</a>
+            <a href="login.html">Login</a>
+            <a href="registration.html">Registration</a>
+            <a href="postvideo.html">Post Video</a>
+            <a href="viewvideo.html">View Videos</a>
         </nav>
     </header>
+
+    <h2>Login Page</h2>
     
     <main>
         <header>
-            <h3>Please input your username and password.</h3>
+            <h4>Please input your username and password.</h4>
         </header>
         <form>
-            <label for="username">Username: </label>
-            <input type="text" id="username"/>
+            <div>
+                <label for="username">Username: </label>
+                <input type="text" id="username" placeholder="Username" class="input"/>
+            </div>
 
-            <label for="password">Password: </label>
-            <input type="password" id="password"/>
+            <div>
+                <label for="password">Password: </label>
+                <input type="password" id="password" placeholder="Password" class="input"/>
+            </div>
+             
+            <input type="submit" value="Login" class="button"/>
 
-            <input type="submit" value="Submit"/>
+            <input type="checkbox" id="remember">
+            <label for="remember">Remember me</label>
         </form>
     </main>
 

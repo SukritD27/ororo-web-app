@@ -1,8 +1,117 @@
+html {
+  background-color: navajowhite;
+  font: 16px;
+  color: black;
+  padding: 0%;
+  margin: 0%;
+}
+
+h1 {
+  padding: 0.5rem;
+  text-align: center;
+  font: 2.5rem "Courier New";
+  background-color: mediumslateblue;
+  font-weight: bolder;
+  margin: 0%;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0%;
+  padding: 0px;
+  font: 1.2rem "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color:navajowhite;
+}
+
+form {
+  padding: 20px;
 }
 
 a {
-  color: #00B7FF;
+  color: hotpink;
+  text-decoration: none;
+}
+
+nav {    
+  text-align: left;
+  font-size: 1.2rem;
+  overflow: auto;
+  background-color:rgb(125, 228, 228);
+  width: 100%;
+}
+
+a:hover {
+  color: black;
+  background-color: aquamarine;
+  border-radius: 0.3rem;
+  border: 0.5px;
+  border-style: solid;
+  
+}
+
+nav a {
+  color:black;
+  text-align: center;
+  padding: 0.3rem;
+  margin: 0.2rem;
+  float: left;
+}
+
+a:active {
+  background-color: rgb(67, 133, 187);
+}
+
+label {
+  padding: 0.3rem;
+}
+
+h3 {
+  padding: 0rem;
+}
+
+h4, h3, footer, form{
+  padding: 0.5rem;
+}
+
+h2 {
+  text-align: center;
+}
+
+.input {
+  width: 100%;
+  display: inline-block;
+  box-sizing: border-box;
+  background-color: navajowhite;
+  border: none;
+  border-bottom: solid;
+  padding: 0.5rem;
+  
+  font-size: 1.2rem;
+}
+
+.button {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.7rem 0rem;
+  background-color: mediumslateblue;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+input.button:hover {
+  border: 1px;
+  border-style: solid;
+  border-color: black;
+  background-color: rgb(114, 91, 241);
+}
+
+input.username:active {
+  border: 2px;
+  border-style: solid;
+  border-color: black;
+}
+
+div {
+  margin: 0.5rem 0rem;
 }
