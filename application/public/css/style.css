@@ -84,7 +84,7 @@ h2 {
   border: none;
   border-bottom: solid;
   padding: 0.5rem;
-  
+  outline: none;
   font-size: 1.2rem;
 }
 
@@ -114,4 +114,29 @@ input.username:active {
 
 div {
   margin: 0.5rem 0rem;
+}
+
+.invalid-input {
+  width: 100%;
+  display: inline-block;
+  box-sizing: border-box;
+  background-color: navajowhite;
+  border: none;
+  border-bottom: red solid;
+  padding: 0.5rem;
+  outline: none;
+  font-size: 1.2rem;
+}
+
+.valid-input {
+  width: 100%;
+  display: inline-block;
+  box-sizing: border-box;
+  background-color: navajowhite;
+  border: none;
+  border-bottom: green solid;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  outline: none
+  
 }
