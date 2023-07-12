@@ -33,7 +33,7 @@
         <form id="registration">
             <div>
                 <label for="username">Username: </label>
-                <input type="text" id="username" placeholder="Username" class="input"/>
+                <input type="text" name="username" id="username" placeholder="Username" class="input"/>
             </div>
             
             <div>
@@ -52,17 +52,17 @@
             </div>
 
             <div>
-                <label for="age">I am 13+</label>
                 <input required type="checkbox" id="age"/>
+                <label for="age">I am 13+</label>
             </div>
                 
             <div>
-                <label for="acceptingRules"> I accept the <a href="">Terms of Service</a> and <a href="">Privacy Rules</a></label>
                 <input required type="checkbox" id="acceptingRules"/>
+                <label for="acceptingRules"> I accept the <a href="">Terms of Service</a> and <a href="">Privacy Rules</a></label>
             </div>
             
             <div>
-                <input type="submit" value="Register" class="button"/>
+                <input type="submit" id="submit" onclick="requiredFunc()" value="Register" class="button"/>
             </div>
         </form>
     </main>
