@@ -5,6 +5,8 @@ var stuff = document.getElementById('main-stuff');
 
 var url = "https://jsonplaceholder.typicode.com/albums/2/photos";
 
+var totNum = document.getElementById('num');
+
 function badgeCreatorHTML(data){
 
     count++;
@@ -26,6 +28,7 @@ fetch(url)
             htmlString += badgeCreatorHTML(photo);
         });
         stuff.innerHTML = htmlString;
+        totNum.innerHTML = `Total number of badges displayed: ${number}`;
     })
    
 function fadeFunc(ev) {
@@ -39,8 +42,9 @@ function fadeFunc(ev) {
              div.remove();
          }
      }, 2);
-     
+
      number--;
+     totNum.innerHTML = `Total number of badges displayed: ${number}`;
 }
 
     
