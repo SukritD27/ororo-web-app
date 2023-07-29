@@ -94,6 +94,7 @@ h2 {
   background-color: navajowhite;
   border: none;
   border-bottom: solid;
+  border-radius: 0.3rem;
   padding: 0.5rem;
   outline: none;
   font-size: 1.2rem;
@@ -137,6 +138,7 @@ div {
   padding: 0.5rem;
   outline: none;
   font-size: 1.2rem;
+  border-radius: 0.3rem;
 }
 
 .valid-input {
@@ -148,8 +150,8 @@ div {
   border-bottom: green solid;
   padding: 0.5rem;
   font-size: 1.2rem;
-  outline: none
-  
+  outline: none;
+  border-radius: 0.3rem;
 }
 
 .badges {
@@ -168,5 +170,36 @@ div {
   border: 1px;
   margin: 8px 8px 8px 8px;
   background-color: rgb(143, 236, 205);
+  border-radius: 0.5rem;
+}
+
+#reg, #login, #postvid {
+  display: grid;
+  
+  grid-template-columns: 1fr 1fr 1.5fr 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 1fr 0.25fr 0.5fr;
+}
+
+.headr {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.reg-form {
+  grid-area: 2/2/5/5;
+  background-color: brown;
+  border-radius: 0.5rem;
+
+}
+
+.login-form {
+  grid-area: 2/2/4/5;
+  background-color: brown;
+  border-radius: 0.5rem;
+}
+
+.post-video {
+  grid-area: 2/2/4/5;
+  background-color: brown;
   border-radius: 0.5rem;
 }
