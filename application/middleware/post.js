@@ -49,7 +49,7 @@ module.exports = {
             if(results && results.length>0){
                  return res.locals.results = results;
             }else{
-                console.log("habdksdjbk;jsbjfd");
+                //console.log("habdksdjbk;jsbjfd");
             }
             
             next();
