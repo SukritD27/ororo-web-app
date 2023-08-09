@@ -8,28 +8,31 @@
 <body>
 
     <main id="login">
-        
+
         <h2 class="headr">Login Page</h2>
 
         <div class="login-form">
             <header>
                 <h4>Please input your username and password.</h4>
             </header>
-            <form>
+            <form action="/users/login" method="post" enctype="application/x-www-form-urlencoded">
                 <div>
-                    <label for="username">Username: </label>
-                    <input type="text" id="username" placeholder="Username" class="input" />
+                    <label for="username">USERNAME </label>
+                    <input type="text" id="username" placeholder="Username" class="input" name="username" />
                 </div>
 
                 <div>
-                    <label for="password">Password: </label>
-                    <input type="password" id="password" placeholder="Password" class="input" />
+                    <label for="password">PASSWORD </label>
+                    <input type="password" id="password" placeholder="Password" class="input" name="password" />
                 </div>
 
                 <input type="submit" value="Login" class="button" />
 
-                <input type="checkbox" id="remember">
+                <input type="checkbox" id="remember" name="rememberMe">
                 <label for="remember">Remember me</label>
+
+                <div id="smallMessage">Don't have an account? <a href="/registration">Sign up now!</a>
+                </div>
             </form>
         </div>
     </main>

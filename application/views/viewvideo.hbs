@@ -7,27 +7,26 @@
 
 <body>
     <h2>View Your Video</h2>
-
-    <div>
-        Post Title: My First Video
+    <div id="vid">
+        <video src="/{{post.video}}" type="video/mp4" controls></video>
     </div>
 
     <div>
-        Post Author: Sukrit
+        Post Title: {{Post.title}}
     </div>
 
     <div>
-        Post Creation Time: June 21, 2023
+        Post Author: {{post.username}}
     </div>
 
     <div>
-        Video: 
-        <div>
-            <video>
-                <source src="video.mp4" type=video/mp4>
-            </video>
-        </div>
+        Post Creation Time: {{date post.createdAt}}
     </div>
+
+    <div>
+        Post Description: {{post.description}}
+    </div>
+
 
     <div>
         Comment Section:

@@ -1,9 +1,42 @@
 <header>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="login.html">Login</a>
-        <a href="registration.html">Registration</a>
-        <a href="postvideo.html">Post Video</a>
-        <a href="viewvideo.html">View Videos</a>
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <form action="/post/search" method="get"> 
+                    <input id="searchBar" type="text" name="key" />
+                    <button id="search" type="submit">Search</button>
+                </form>
+                
+            </li>
+            <li>
+                <a href="/postvideo">Post</a>
+            </li>
+            <li>
+                <a href="/registration">Registration</a>
+            </li>
+
+            <li>
+                <a href="/viewvideo">View Videos</a>
+            </li>
+
+
+            {{#if isLoggedIn}}
+            <li>
+                <a text-align="left">Hi, {{user.username}}</a>
+            </li>
+            <li>
+                <form action="/users/logout" method="post">
+                    <button type="submit">Log out</button>
+                </form>
+            </li>
+            {{else}}
+            <li>
+                <a href="/login">Login</a>
+            </li>
+            {{/if}}
+        </ul>
     </nav>
 </header>

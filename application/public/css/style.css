@@ -11,8 +11,9 @@ html {
 h1 {
   padding: 0.5rem;
   text-align: center;
-  font: 2.5rem "Courier New";
+  font: 2.5rem "Lucida Console", "Courier New";;
   background-color: mediumslateblue;
+  color: rgb(250, 140, 195);
   font-weight: bolder;
   margin: 0%;
 }
@@ -24,8 +25,10 @@ body {
   height: 100%;
   overflow: auto;
   display: block;
-  font: 1.2rem "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color:navajowhite;
+  font: 1.2rem "Lucida Console", "Courier New";
+  /* background-color:rgb(249, 246, 238); */
+  /* background-color: #FAF9F6; */
+background-color: #f0f0f0;
 }
 
 main {
@@ -33,9 +36,7 @@ main {
   overflow: auto;
 }
 
-form {
-  padding: 20px;
-}
+
 
 a {
   color: hotpink;
@@ -46,16 +47,18 @@ nav {
   text-align: left;
   font-size: 1.2rem;
   overflow: auto;
-  background-color:rgb(125, 228, 228);
+  /* background-color:rgb(125, 228, 228); */
+  background-color: mediumslateblue;
   width: 100%;
+  border-top: 10px;
 }
 
 a:hover {
   color: black;
-  background-color: aquamarine;
-  border-radius: 0.3rem;
+  background-color: rgb(145, 240, 240);
+  border-radius: 0.7rem;
   border: 0.5px;
-  border-style: solid;
+  /* border-style: solid; */
   
 }
 
@@ -72,6 +75,7 @@ a:active {
 }
 
 label {
+  display: inline;
   padding: 0.3rem;
 }
 
@@ -79,8 +83,17 @@ h3 {
   padding: 0rem;
 }
 
+footer {
+  text-align: center;
+}
+
 h4, h3, footer, form{
   padding: 0.5rem;
+  margin: 15px;
+}
+
+form {
+  margin: 10px 15px 10px 15px;
 }
 
 h2 {
@@ -91,11 +104,11 @@ h2 {
   width: 100%;
   display: inline-block;
   box-sizing: border-box;
-  background-color: navajowhite;
+  background-color: white;
   border: none;
   border-bottom: solid;
-  border-radius: 0.3rem;
-  padding: 0.5rem;
+  /* border-radius: 0.3rem; */
+  margin: 13px 0px 13px 0px;
   outline: none;
   font-size: 1.2rem;
 }
@@ -104,6 +117,7 @@ h2 {
   width: 100%;
   padding: 0.5rem;
   margin: 0.7rem 0rem;
+  border-radius: 50rem;
   background-color: mediumslateblue;
   border: none;
   color: white;
@@ -132,52 +146,55 @@ div {
   width: 100%;
   display: inline-block;
   box-sizing: border-box;
-  background-color: navajowhite;
+  background-color: white;
   border: none;
   border-bottom: red solid;
   padding: 0.5rem;
   outline: none;
   font-size: 1.2rem;
-  border-radius: 0.3rem;
 }
 
 .valid-input {
   width: 100%;
   display: inline-block;
   box-sizing: border-box;
-  background-color: navajowhite;
+  background-color: white;
   border: none;
   border-bottom: green solid;
   padding: 0.5rem;
   font-size: 1.2rem;
   outline: none;
-  border-radius: 0.3rem;
 }
 
 .badges {
   display: grid;
-  width: 100px;
+  width: 100%;
   height: 100px; 
-  grid-template-columns: repeat(8, 1fr);
-  grid-auto-columns: auto;
-  grid-auto-rows: auto;
-  grid-template-rows: repeat(8, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   grid-auto-flow: dense;
 }
 
 .badge {
   padding: 12px;
   border: 1px;
-  margin: 8px 8px 8px 8px;
-  background-color: rgb(143, 236, 205);
+  margin: 15px 15px 15px 15px;
+  color: mediumslateblue;
+  font-family: "Lucida Console", "Courier New";
+  background-color: white;
   border-radius: 0.5rem;
+  box-shadow: 
+  0.2px 0.2px 10px grey,
+  -0.2px -0.2px 10px grey;
 }
 
 #reg, #login, #postvid {
   display: grid;
   
-  grid-template-columns: 1fr 1fr 1.5fr 1fr 1fr;
-  grid-template-rows: 0.5fr 1fr 1fr 0.25fr 0.5fr;
+  grid-template-columns: 1fr 0.25fr 0.5fr 0.25fr 1fr;
+  grid-template-rows: 0.25fr 1fr 1fr 1fr 0.25fr;
+  overflow-x: auto;
+  overflow-y: auto;
 }
 
 .headr {
@@ -187,19 +204,71 @@ div {
 
 .reg-form {
   grid-area: 2/2/5/5;
-  background-color: brown;
+  color: mediumslateblue;
+  font-family: "Lucida Console", "Courier New";
+  background-color: white;
   border-radius: 0.5rem;
-
+  /* box-shadow: 
+  5px 5px 5px grey,
+  -5px -5px 5px grey; */
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(179, 170, 170);
+  overflow-x: auto;
+  overflow-y: auto;
 }
 
 .login-form {
   grid-area: 2/2/4/5;
-  background-color: brown;
+  color: mediumslateblue;
+  font-family: "Lucida Console", "Courier New";
+  background-color: white;
   border-radius: 0.5rem;
+  /* box-shadow: 
+  1px 1px  grey,
+  -1px -1px  grey; */
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(179, 170, 170);
+  overflow-x: auto;
+  overflow-y: auto;
 }
 
 .post-video {
   grid-area: 2/2/4/5;
-  background-color: brown;
+  color: mediumslateblue;
+  font-family: "Lucida Console", "Courier New";
+  background-color: white;
   border-radius: 0.5rem;
+  /* box-shadow: 
+  5px 5px 20px grey,
+  -5px -5px 20px grey; */
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(179, 170, 170);
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+#smallMessage {
+  font-size: 17px;
+  margin: 20px 0px 10px 0px;
+}
+
+#smallMessage a:hover {
+  color: rgb(204, 0, 102);
+  background-color: white;
+  text-decoration: underline;
+}
+
+.rules a:hover {
+  color: rgb(204, 0, 102);
+  background-color: white;
+  text-decoration: underline;
+}
+
+.alert {
+  width: 50%;
+  text-align: center;
+  margin: auto;
 }

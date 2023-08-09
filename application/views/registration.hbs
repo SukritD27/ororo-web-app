@@ -3,7 +3,7 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="/public/css/style.css" />
-    <script defer src="/public/js/formValidation.js"></script>
+    {{!-- <script defer src="/public/js/formValidation.js"></script> --}}
 </head>
 
 <body>
@@ -16,35 +16,35 @@
                 <h4>Please complete the form to be a registered user.</h4>
             </header>
 
-            <form id="registration" class="info">
+            <form id="registration" class="info" action="/users/registration" method="post" enctype="application/x-www-form-urlencoded">
                 <div>
-                    <label for="username">Username: </label>
+                    <label for="username">USERNAME </label>
                     <input type="text" name="username" id="username" placeholder="Username" class="input" />
                 </div>
 
                 <div>
-                    <label for="password">Password: </label>
-                    <input type="password" id="password" placeholder="Password" class="input" />
+                    <label for="password">PASSWORD </label>
+                    <input type="password" id="password" placeholder="Password" class="input" name="password"/>
                 </div>
 
                 <div>
-                    <label for="confirmPassword">Confirm Password: </label>
-                    <input type="password" id="confirmPassword" placeholder="Re-Type Password" class="input" />
+                    <label for="confirmPassword">CONFIRM PASSWORD </label>
+                    <input type="password" id="confirmPassword" placeholder="Re-Type Password" class="input" name="confirmPassword"/>
                 </div>
 
                 <div>
-                    <label for="email">Email: </label>
-                    <input type="email" id="email" placeholder="abcd@something.com" class="input" />
+                    <label for="email">EMAIL </label>
+                    <input type="email" id="email" placeholder="abcd@something.com" class="input" name="email"/>
                 </div>
 
                 <div>
-                    <input required type="checkbox" id="age" />
+                    <input required type="checkbox" id="age" name="aocCheck"/>
                     <label for="age">I am 13+</label>
                 </div>
 
                 <div>
-                    <input required type="checkbox" id="acceptingRules" />
-                    <label for="acceptingRules"> I accept the <a href="">Terms of Service</a> and <a href="">Privacy
+                    <input required type="checkbox" id="acceptingRules" name="tocCheck"/>
+                    <label class="rules" for="acceptingRules"> I accept the <a href="">Terms of Service</a> and <a href="">Privacy
                             Rules</a></label>
                 </div>
 
