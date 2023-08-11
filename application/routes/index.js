@@ -1,10 +1,11 @@
 var express = require('express');
 const { isLoggedIn } = require('../middleware/auth');
+const { grabAll } = require('../middleware/post');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'CSC 317 App', name:"Sukrit Dev Dhawan"});
+router.get('/', grabAll, function(req, res, next) {
+  res.render('index', { title: 'ORORO', name:"Sukrit Dev Dhawan"});
 });
 
 router.get('/login', function(req, res, next) {

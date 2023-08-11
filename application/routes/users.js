@@ -2,45 +2,13 @@ var express = require('express');
 var bcrypt = require('bcrypt');
 var router = express.Router();
 const db = require("../config/database.js");
-const validator = require('validator');
-const validPassword = require('../middleware/validation.js');
+const { doesEmailExist, doesUsernameExist, validPassword, validUsername, validEmail } = require('../middleware/validation.js');
 
-router.post('/registration', async function (req, res, next) {
+router.post('/registration',validUsername, validEmail, validPassword, doesEmailExist, doesUsernameExist, async function (req, res, next) {
 
   var { username, email, password } = req.body;
-  //server side validation
-  // --> uniqueness checks
-  // --> rules check
-
-  // var score = validator.isStrongPassword(password, {
-  //   returnScore : true
-  // });
-  // if(score > 40){
-  // res.send('is strong password');
-  // }else{
-  //   res.send('is weak password');
-  // }
-
-  // if(validPassword){
-  //  // return res.send( `strong ${validPassword}`);
-  // }else{
-  //   //return res.send( `weak ${validPassword}`);
-
-  // }
 
   try {
-    //uniqueness check
-    var [results, _] = await db.execute(`select id from users where username=?`, [username]);
-    if (results && results.length > 0) {
-      console.log(`*****This ${username} already exists. Please try again.*****`)
-      return res.redirect('/registration');
-    }
-
-    var [results, _] = await db.execute(`select id from users where email=?`, [email]);
-    if (results && results.length > 0) {
-      console.log(`*****${email} already exists. Please try again.*****`)
-      return res.redirect('/registration');
-    }
 
     var hashPass = await bcrypt.hash(password, 5);
 
@@ -70,7 +38,7 @@ router.post('/login', async function (req, res, next) {
     const user = results[0];
 
     if (!user) {
-      req.flash("error", 'Login failed');
+      req.flash("error", 'Incorrect username or password!');
       return req.session.save(function(err){
         if(err) next(err);
         return res.redirect('/login');
@@ -88,7 +56,7 @@ router.post('/login', async function (req, res, next) {
       };
       res.redirect('/');
     } else {
-      req.flash("error", 'Invalid credentials');
+      req.flash("error", 'Incorrect username or password!');
       return req.session.save(function(err){
         if(err) next(err);
         return res.redirect('/login');
@@ -100,25 +68,6 @@ router.post('/login', async function (req, res, next) {
   }
 })
 
-// router.post("/postvideo", async function (req, res, next){
-
-//   try{
-  
-//     if (isLoggedIn) {
-//       return res.redirect('/postvideo');
-//     }else{
-//       req.flash("error", 'Please sign in before posting content');
-//       return req.session.save(function(err){
-//         if(err) next(err);
-//         return res.redirect('/login');
-//       })
-//     }
-//   }catch (err){
-//     next(err);
-//   }
-
-
-// })
 
 router.post("/logout", function (req, res, next) {
   req.session.destroy(function (err) {

@@ -3,37 +3,56 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="/public/css/style.css" />
+    <script defer src="/public/js/viewvideo.js"></script>
 </head>
 
 <body>
-    <h2>View Your Video</h2>
-    <div id="vid">
-        <video src="/{{post.video}}" type="video/mp4" controls></video>
-    </div>
-
-    <div>
-        Post Title: {{Post.title}}
-    </div>
-
-    <div>
-        Post Author: {{post.username}}
-    </div>
-
-    <div>
-        Post Creation Time: {{date post.createdAt}}
-    </div>
-
-    <div>
-        Post Description: {{post.description}}
-    </div>
-
-
-    <div>
-        Comment Section:
-        <div>
-            <input type="text" id="comments">
+    <main id="postPage">
+        <div class="barL"></div>
+        <h2 id="title">View Your Video</h2>
+        <div id="vid">
+            <video src="/{{post.video}}" type="video/mp4" controls></video>
         </div>
-    </div>
+
+        <div id="vidT">
+            Post Title: {{post.title}}
+        </div>
+
+        <div id="author">
+            Post Author: {{post.username}}
+        </div>
+
+        <div id="time">
+            Post Creation Time: {{date post.createdAt}}
+        </div>
+
+        <div id="description">
+            Post Description: {{post.description}}
+        </div>
+
+
+        <div id="commentSec">
+            Comment Section:
+            <div>
+                <input class="input" type="text" id="comments" name="comment" data-postid="{{post.id}}">
+                {{!-- <input type="hidden" value="{{post.id}}" /> --}}
+                <button id="commentBtn" type="submit" class="button" data-postid="{{post.id}}" />button</button>
+            </div>
+        </div>
+
+        <div id="commentsList">
+            {{#each post.comments}}
+            <div class="comment">
+                <div class="comment-author"><strong>{{username}}</strong></div>
+                <div class="comment-text">{{comment}}</div>
+                <div class="comment-date">{{date createdAt}}</div>
+            </div>
+            {{/each}}
+
+        </div>
+        <div class="barR"></div>
+
+    </main>
 </body>
 
 </html>

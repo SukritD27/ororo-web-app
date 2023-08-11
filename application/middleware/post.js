@@ -19,42 +19,52 @@ module.exports = {
         }
     },
 
-    grabPostById: async function(req, res, next){
-        var{id} = req.params;
+    grabPostById: async function (req, res, next) {
+        var { id } = req.params;
 
-        try{
-           var [results,_] = await db.execute(`SELECT post.id, post.video, post.title, post.description, post.createdAt, post.thumbnail, user.username FROM posts post JOIN users user ON fk_userid = user.id WHERE post.id = ?;`, [id]);
+        try {
+            var [results, _] = await db.execute(`SELECT post.id, post.video, post.title, post.description, post.createdAt, post.thumbnail, user.username FROM posts post JOIN users user ON fk_userid = user.id WHERE post.id = ?;`, [id]);
 
-           const post = results[0];
+            const post = results[0];
 
-           if(!post){
-            req.flash('error', 'Not your post!');
-            req.session.save(function(err){
-              if (err) next (err);
-              res.redirect('/');
-            })
-           }else{
-               res.locals.post = post;
-               next(); 
-           }
+            if (!post) {
+                req.flash('error', 'Not your post!');
+                req.session.save(function (err) {
+                    if (err) next(err);
+                    res.redirect('/');
+                })
+            } else {
+                res.locals.post = post;
+                next();
+            }
 
-        }catch(err){
+        } catch (err) {
             next(err);
         }
     },
 
-    grabAll: async function(req, res, next){
-        try{
-            var [results, _] = await db.execute(`SELECT id, title, description, thumbnail FROM posts`);
-            if(results && results.length>0){
-                 return res.locals.results = results;
-            }else{
-                //console.log("habdksdjbk;jsbjfd");
-            }
-            
+    grabAll: async function (req, res, next) {
+        try {
+            var [results, _] = await db.execute(`SELECT * FROM posts ORDER BY createdAt DESC LIMIT 15;`);
+            if (results && results.length > 0) {
+                res.locals.results = results;
+            } 
             next();
+        } catch (err) {
+        }
+    },
 
+    getCommentsForPostById: async function (req, res, next) {
+        var { id } = req.params;
+        try{
+
+            var[results, _] = await db.execute(`SELECT c.id, c.comment, c.createdAt, u.username 
+            FROM comments c JOIN users u ON c.fk_userID=u.id 
+            WHERE c.fk_postID=?;`, [id]);
+            res.locals.post.comments = results;
+            next();
         }catch(err){
+            if(err) next(err);
         }
     }
 }

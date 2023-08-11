@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var multer = require('multer');
-const { makeThumbnail, grabPostById, grabAll } = require('../middleware/post');
+const { makeThumbnail, grabPostById, grabAll, getCommentsForPostById } = require('../middleware/post');
 const { isLoggedIn } = require('../middleware/auth');
 const db = require("../config/database.js");
 
@@ -25,9 +25,9 @@ router.post("/post-content", isLoggedIn, upload.single('video'), makeThumbnail, 
   var { id } = req.session.user;
 
   try {
-
     var [insertResult, _] = await db.execute(`INSERT INTO posts (title, description, video, thumbnail, fk_userid) value (?,?,?,?,?);`, [title, description, path, thumbnail, id]);
 
+    console.log(insertResult.affectedRows);
     if (insertResult && insertResult.affectedRows) {
       req.flash("success", "Content was uploaded!");
       return req.session.save(function (err) {
@@ -45,8 +45,8 @@ router.post("/post-content", isLoggedIn, upload.single('video'), makeThumbnail, 
   }
 })
 
-router.get('/:id(\\d+)', grabPostById, function (req, res, next) {
-  res.render('viewvideo', { title: 'View Post', name: "Sukrit Dev Dhawan" });
+router.get('/:id(\\d+)', grabPostById, getCommentsForPostById, function (req, res, next) {
+  res.render('viewvideo', { title: `(${req.params.id}) ORORO`, name: "Sukrit Dev Dhawan" });
 });
 
 
@@ -56,13 +56,24 @@ router.get("/search", async function (req, res, next) {
 
   try {
     var [results, _] = await db.execute(`SELECT id, title, description, thumbnail, concat_ws("", title, description) AS haystack FROM posts HAVING haystack LIKE ?`, [search]);
-     //res.status(200).json({ results });
+    //res.status(200).json({ results });
 
-    if(results && results.length > 0){
+    if (results && results.length > 0) {
       res.locals.count = results.length;
       res.locals.results = results;
-    }else{
-      res.locals.results = grabAll();
+      res.locals.search = key
+    } else {
+      try {
+        console.log("sdfsdfgsdfg");
+        var [results, _] = await db.execute(`SELECT * FROM posts ORDER BY createdAt DESC LIMIT 15;`);
+        console.log(results)
+        if (results && results.length > 0) {
+          res.locals.results = results;
+        }
+
+      } catch (err) {
+      }
+      // grabAll(req,res,next);
     }
 
     res.render('index');

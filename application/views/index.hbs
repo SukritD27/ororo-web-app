@@ -3,11 +3,12 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="/public/css/style.css" />
-    {{!-- <script defer src="/public/js/index.js"></script>  --}}
+    {{!--
+    <script defer src="/public/js/index.js"></script> --}}
 </head>
 
 <body>
-    
+
     <main>
         <h2>Welcome to the Home Page!!</h2>
         <div id="num">
@@ -15,20 +16,32 @@
 
 
         <div class="badges" id="main-stuff">
+
             {{#each results}}
+            <a href="/post/{{id}}">
                 <div class="badge">
-                    <img src="/{{thumbnail}}" alt="">
-                    <a href="/post/{{id}}">{{title}}</a>
+                    <div id="l"></div>
+                    <div id="m1"></div>
+
+                    {{!-- <video class="hoverPlay1" style="z-index: 3;" autoplay>
+                        <source src="/{{video}}" type="video/mp4 ">
+                    </video> --}}
+                    <img id="thumb" src="/{{thumbnail}}" style="z-index: 1;">
+                    <div id="ti">{{title}}</div>
+                    <div id="m2"></div>
+                    <div id="r"></div>
                 </div>
+            </a>
             {{/each}}
-            </div>
-        
-       
-       
+
+        </div>
+
+
+
     </main>
     <div>
     </div>
-    
+
 </body>
 
 
